@@ -10,7 +10,7 @@ import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
 
 @Entity(name = "tb_tasks")
-public class Task {
+public class Taskk {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,12 +29,12 @@ public class Task {
 
     private Boolean status;
 
-    public Task(Long id,
-                String name,
-                String description,
-                String owner,
-                LocalDate date,
-                Boolean status) {
+    public Taskk(Long id,
+                 String name,
+                 String description,
+                 String owner,
+                 LocalDate date,
+                 Boolean status) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -43,7 +43,7 @@ public class Task {
         this.status = status;
     }
 
-    public Task() {}
+    public Taskk() {}
 
     public Long getId() {
         return id;

@@ -1,5 +1,7 @@
-package com.gen.controller;
+package com.gen.todolist.controller;
 
+import com.gen.todolist.model.Taskk;
+import com.gen.todolist.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,15 +19,14 @@ public class TaskController {
     private TaskRepository taskRepository;
 
     @PostMapping
-    public ResponseEntity<Task> post (@Valid @RequestBody Task task) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(taskRepository.save(task));
+    public ResponseEntity<Taskk> post (@Valid @RequestBody Taskk taskk) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(taskRepository.save(taskk));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Task> getById(@PathVariable Long id) {
+    public ResponseEntity<Taskk> getById(@PathVariable Long id) {
         return taskRepository.findById(id)
-                .map(resposta -> ResponseEntity.ok(resposta))
+                .map(resp -> ResponseEntity.ok(resp))
                 .orElse(ResponseEntity.notFound().build());
     }
-    
 }
